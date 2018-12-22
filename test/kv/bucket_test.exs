@@ -19,4 +19,12 @@ defmodule KV.BucketTest do
 
     assert KV.Bucket.get(bucket, "milk") == nil
   end
+
+  test "has multiple things", %{bucket: bucket} do
+    KV.Bucket.put(bucket, "juice", 1)
+    KV.Bucket.put(bucket, "milk", 2)
+
+    assert KV.Bucket.get(bucket, "juice") == 1
+    assert KV.Bucket.get(bucket, "milk") == 2
+  end
 end
